@@ -4,7 +4,7 @@ FROM --platform=linux/arm64 ghcr.io/chrislovering/python-poetry-base:3.11-slim
 # Install deps
 WORKDIR /bot
 COPY pyproject.toml poetry.lock ./
-RUN poetry install
+RUN poetry install --without dev
 
 COPY . .
 
