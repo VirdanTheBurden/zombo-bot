@@ -1,0 +1,30 @@
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+  
+jobs:
+  lint-test:
+    name: Lint and Test
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Install Python
+      uses: actions/setup-python@4
+      with:
+        python-version: "3.11"
+        cache: "poetry"
+    
+    - name: Install dependencies
+      run: poetry install
+      
+    - name: Run black
+      run: "black ."
