@@ -1,11 +1,18 @@
 version: "3.7"
 
 services:
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
   bot:
     build:
-      context: .
+      context: ./
       dockerfile: Dockerfile
     env_file:
       - .env
     volumes:
       - .:/zombo-bot:ro
+    depends_on:
+      - redis
