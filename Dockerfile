@@ -22,10 +22,8 @@ RUN curl -sSL https://install.python-poetry.org | python
 
 # Install deps
 WORKDIR /bot
-COPY pyproject.toml poetry.lock ./
+COPY pyproject.toml poetry.lock /bot/
 RUN poetry install
-
-COPY . .
 
 ENTRYPOINT ["poetry"]
 CMD ["run", "python", "-m", "bot"]
