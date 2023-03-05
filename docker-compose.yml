@@ -5,6 +5,8 @@ services:
     image: redis:alpine
     ports:
       - "6379:6379"
+    volumes:
+      - "./data/redis:/data:rw"
 
   bot:
     build:
@@ -13,6 +15,6 @@ services:
     env_file:
       - .env
     volumes:
-      - .:/zombo-bot:ro
+      - .:/bot:ro
     depends_on:
       - redis
