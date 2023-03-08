@@ -14,6 +14,7 @@ ENV POETRY_VERSION=1.3.1 \
   POETRY_VIRTUALENVS_IN_PROJECT=false
 
 ENV PATH="$POETRY_HOME/bin:$PATH"
+ENV PYTHONUNBUFFERED=1
 
 RUN apk -U upgrade \
   && apk --no-cache add curl gcc musl-dev python3-dev libffi-dev openssl-dev cargo pkgconfig
