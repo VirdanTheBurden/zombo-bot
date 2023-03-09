@@ -1,6 +1,6 @@
 import pathlib
 
-import redis
+import redis.asyncio as redis
 from nextcord.ext import commands
 
 TEST_GUILD_ID = 1076694244271587490
@@ -30,8 +30,8 @@ class ZomboBot(commands.Bot):
         return self
 
     async def __aexit__(self, exc_type, exc_val, exc_tb):
-        self._redis.save()
-        self._redis.close()
+        self._redis.bgsave()
+        await self._redis.close()
 
         if isinstance(KeyboardInterrupt, exc_val):
             return True

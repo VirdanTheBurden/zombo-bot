@@ -2,7 +2,7 @@ import asyncio
 import os
 
 import nextcord
-import redis
+import redis.asyncio as redis
 from dotenv import load_dotenv
 
 from bot.bot import ZomboBot
