@@ -4,7 +4,6 @@ version = "0.1.0"
 description = "Manages Project Zomboid RP server for me. :D"
 authors = ["Luna <ojackson287@gmail.com>"]
 readme = "README.md"
-packages = [{include = "zombo_bot"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
