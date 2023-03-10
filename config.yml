@@ -1,0 +1,13 @@
+debug: !ENV ["DEBUG", true]
+file_logs: !ENV ["FILE_LOGGING", true]
+bot:
+  prefix: "?"
+  token: !ENV "TOKEN"
+guild:
+  id: 1076694244271587490
+  categories:
+    team_voicechannels: 1076694244871389275
+  channels:
+    bot_log: 1083621767781830739
+    team_log: 1078060821990617138
+    server_status_log: 1078060929138311168
