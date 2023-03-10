@@ -7,7 +7,7 @@ def setup():
     """Setup loggers."""
 
     format_str = (
-        "[%(levelname)s] %(name)s - %(asctime)s | %(funcName)s:%(lineno)d | %(message)s"
+        "[%(levelname)s] [%(asctime)s] [%(name)s] | [%(funcName)s:%(lineno)d] | %(message)s"
     )
     date_fmt = "%Y-%m-%d %H:%M:%S"
 
