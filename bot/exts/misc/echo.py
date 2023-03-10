@@ -1,7 +1,9 @@
 import nextcord
 from nextcord.ext import commands
+import logging
+from bot import constants
 
-TEST_GUILD_ID = 1076694244271587490
+logger = logging.getLogger(__name__)
 
 
 class Echo(commands.Cog):
@@ -9,12 +11,12 @@ class Echo(commands.Cog):
         self._bot = _bot
 
     @nextcord.slash_command(
-        description="This command repeats what you tell it.", guild_ids=[TEST_GUILD_ID]
+        description="This command repeats what you tell it.", guild_ids=[constants.Guild.id]
     )
     async def echo(self, interaction: nextcord.Interaction, content: str):
         await interaction.send(content)
 
 
 def setup(bot: commands.Bot):
-    print("Echo cog is being loaded.")
+    logger.info("Echo extension is being loaded.")
     bot.add_cog(Echo(bot))
