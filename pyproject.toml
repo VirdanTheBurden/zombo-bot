@@ -10,7 +10,13 @@ python = "^3.11"
 nextcord = "^2.4.0"
 httpx = "^0.23.3"
 pyyaml = "^6.0"
+python-dotenv = "^0.21.1"
+flake8 = "^6.0.0"
 black = "^23.1.0"
+pytest = "^7.2.1"
+redis = "^4.5.1"
+coloredlogs = "^15.0.1"
+colorama = "^0.4.6"
 
 
 [build-system]
