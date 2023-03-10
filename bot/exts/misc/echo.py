@@ -11,7 +11,8 @@ class Echo(commands.Cog):
         self._bot = _bot
 
     @nextcord.slash_command(
-        description="This command repeats what you tell it.", guild_ids=[constants.Guild.id]
+        description="This command repeats what you tell it.",
+        guild_ids=[constants.Guild.id],
     )
     async def echo(self, interaction: nextcord.Interaction, content: str):
         await interaction.send(content)

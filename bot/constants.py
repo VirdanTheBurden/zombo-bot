@@ -9,6 +9,7 @@ import pathlib
 load_dotenv()
 logger = logging.getLogger(__name__)
 
+
 # allow for ENV constructor
 def _load_env_vars(loader, node):
     default = None
@@ -22,7 +23,9 @@ def _load_env_vars(loader, node):
         # 'tis the list of legend
         value = loader.construct_sequence(node)
         if len(value) > 2 or len(value) < 0:
-            raise AttributeError(f"There can be at most 2 items or at least 1 item. There are {len(value)} present.")
+            raise AttributeError(
+                f"There can be at most 2 items or at least 1 item. There are {len(value)} present."
+            )
 
         elif len(value) == 2:
             # key and default
@@ -30,7 +33,7 @@ def _load_env_vars(loader, node):
 
         else:
             # just the one
-            key, = value
+            (key,) = value
 
     return os.getenv(key, default)
 
@@ -45,7 +48,11 @@ class YAMLAccessor(type):
 
     def __getattr__(cls, name):
         name = name.lower()
-        entry = '.'.join((cls.section, cls.subsection, name) if cls.subsection is not None else (cls.section, name))
+        entry = ".".join(
+            (cls.section, cls.subsection, name)
+            if cls.subsection is not None
+            else (cls.section, name)
+        )
 
         try:
             logger.debug(f"Attempting to access entry {entry}...")

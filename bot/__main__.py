@@ -10,12 +10,13 @@ from bot.bot import ZomboBot
 from bot import log
 
 
-
 log.setup()
 
 
 async def main():
-    async with ZomboBot(redis.Redis(host="localhost", port=6379), intents=nextcord.Intents.all()) as _bot:
+    async with ZomboBot(
+        redis.Redis(host="localhost", port=6379), intents=nextcord.Intents.all()
+    ) as _bot:
         await _bot.start(constants.Bot.token)
 
 
