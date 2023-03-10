@@ -17,16 +17,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
       
-    - name: Install Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: "3.11"
-        
-    - name: Install Poetry
-      run: "curl -sSL https://install.python-poetry.org | python3 -"
-    
-    - name: Install dependencies
-      run: poetry install
-      
     - name: Run black
-      run: "python3 -m black ."
+      uses: psf/black@stable
+      with:
+        options: "--check --verbose"
+        src: "./bot"
+        version: "~= 23.0"
+    
