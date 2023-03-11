@@ -19,5 +19,4 @@ class Echo(commands.Cog):
 
 
 def setup(bot: commands.Bot):
-    logger.info("Echo extension is being loaded.")
     bot.add_cog(Echo(bot))
